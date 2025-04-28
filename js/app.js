@@ -9,13 +9,15 @@ function adicionar() {
     let preco = parseFloat(elemProduto[1]);
     let precoSubTotal = qtd * preco;
 
-    if (qtd > 0) {
+    if (qtd > 0 && qtd <= 100) {
         elemCarrinho.innerHTML += `<section class="carrinho__produtos__produto">
           <span class="texto-azul">${qtd}x</span> ${descProduto} <span class="texto-azul">R$${precoSubTotal.toFixed(2)}</span>
         </section>`;
         
         valorTotal += precoSubTotal;
         elemValorTotal.textContent = `R$${valorTotal.toFixed(2)}`;
+    } else {
+        alert(`A quantidade de ${descProduto} selecionada não condiz com o limite permitido.`)
     }
 } 
 
